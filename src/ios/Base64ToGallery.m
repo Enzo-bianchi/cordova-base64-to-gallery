@@ -31,10 +31,10 @@
                 UIImage *image = [[[UIImage alloc] initWithData:imageData] autorelease];
 
                 // converts the UIImage to NSData
-                NSData *pngImageData = UIImagePNGRepresentation(image);
+                NSData *jpgImageData = UIImageJPEGRepresentation(image, 0.75);
 
                 // image extension
-                NSString *imageExtension = @".png";
+                NSString *imageExtension = @".jpg";
 
                 // get Timestamp
                 double currentTime = CACurrentMediaTime();
@@ -55,7 +55,7 @@
                 NSString *imagePath = [libPathNoSync stringByAppendingPathComponent:fileName];
 
                 // writeToFile
-                bool success = [fileManager createFileAtPath:imagePath contents:pngImageData attributes:nil];
+                bool success = [fileManager createFileAtPath:imagePath contents:jpgImageData attributes:nil];
                 
                 if(success){
                     // write to documents folder was successfull
